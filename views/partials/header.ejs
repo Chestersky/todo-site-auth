@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Todo App</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+    </head>
+    <body>
+        <div class="ui fixed inverted menu">
+            <div class="ui container">
+                <div class="header item"><i class="sticky note outline icon"></i>Todo Site</div>
+                <a href="/" class="item">Home</a>
+                <a href="/todos/new" class="item">New Todo</a>
+                <div class="right menu">
+                    <% if(!loggedUser){ %>
+                        <a class="item" href="/login">Login</a>
+                        <a class="item" href="/register">Sign up</a>
+                    <% }else{ %>
+                        <a class="active item" href="/account/<%= loggedUser._id %>">Welcome <%= loggedUser.username %>!</a>
+                        <a class="item" href="/logout">Logout</a>
+                    <% } %>
+                </div>
+            </div>
+        </div>

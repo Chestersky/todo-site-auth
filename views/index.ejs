@@ -1,0 +1,31 @@
+<% include ./partials/header %>
+<div class="ui main text container">
+    <div class="ui huge header">Todo site</div>
+    <div class="ui top attached piled segment">
+        <div class="ui divided items">
+            <% todos.forEach(function(todo){ %>
+                <div class="item">
+                    <div class="content">
+                        <a href="/todos/<%=todo._id%>" class="header">
+                            <%= todo.title %>
+                        </a>
+                        <div class="meta">
+                            <span><%= todo.created.toDateString() %></span>
+                        </div>
+                        <div class="description">
+                            <p><%= todo.body.substring(0,100) %>...</p>
+                        </div>
+                        <div class="extra">
+                            <a href="/todos/<%= todo._id %>/edit"><i class="edit outline icon"></i></a>
+                            <form id="delete" action="/todos/<%= todo._id %>?_method=DELETE" method="POST">
+                                <button class="btn"><i class="trash alternate outline icon"></i></button>
+                            </form>
+                            <a href="/todos/<%= todo._id %>"><i class="arrow alternate circle right outline icon"></i></a>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+<% include ./partials/footer %>

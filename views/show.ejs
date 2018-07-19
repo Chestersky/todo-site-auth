@@ -1,0 +1,20 @@
+<% include ./partials/header %>
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= todo.title %></div>
+    <div class="ui top attached">
+        <div class="content">
+            <span><%= todo.created.toDateString() %></span>
+        </div>
+        <div class="description">
+            <p><%- todo.body %></p>  
+        </div>
+        <div class="extra">
+            <a href="/todos/<%= todo._id %>/edit"><i class="edit outline icon"></i></a>
+            <form id="delete" action="/todos/<%= todo._id %>?_method=DELETE" method="POST">
+                <button class="btn"><i class="trash alternate outline icon"></i></button>
+            </form>
+            <a href="/todos"><i class="arrow alternate circle left outline icon"></i></a>
+        </div>
+    </div>
+</div>
+<% include ./partials/footer %>

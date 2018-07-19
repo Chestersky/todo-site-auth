@@ -1,0 +1,23 @@
+.item > icon{
+    font-size: 2em;
+}
+.container.main{
+    margin-top: 7.0em;
+}
+
+#delete{
+    display: inline;
+}
+.btn {
+    background-color: white;
+    border: none; /* Remove borders */
+    color: black; /* White text */
+    cursor: pointer;
+    padding: 0;/* Mouse pointer on hover */
+}
+.btn:hover{
+    color:blue;
+}
+a{
+    color:black;
+}
