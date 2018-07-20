@@ -1,1 +1,2 @@
-Todo site project.
+# todo-site-auth
+Todo site with authentication and MongoDB
