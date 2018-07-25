@@ -166,7 +166,7 @@ app.get("/logout", function(req, res) {
 });
 
 //account info
-app.get("/account/:id",function(req, res) {
+app.get("/account/:id", isLoggedIn, function(req, res) {
     User.findById(req.params.id,function(err, foundUser) {
         if(err){
             console.log(err);
