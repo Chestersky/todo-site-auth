@@ -118,13 +118,19 @@ app.put("/todos/:id", isLoggedIn, function(req,res){
 
 //delete route
 app.delete("/todos/:id", isLoggedIn, function(req,res){
-    Todo.findByIdAndRemove(req.params.id, function(err){
+    Todo.findByIdAndRemove(req.params.id, function(err,removed){
         if(err){
             res.redirect("/todos");
         }else{
-            res.redirect("/todos"); 
+            User.findOneAndUpdate({username: req.user.username},{$pull:{todos: req.params.id}}).populate("todos").exec(function(err,user){
+                if(err){
+                    console.log(err);
+                }else{
+                    res.redirect("/todos");
+                }
+            });
         }
-    })
+    });
 })
 
 //register form
