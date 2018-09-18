@@ -4,11 +4,11 @@
     <form class="ui form" action="/todos" method="POST">
         <div class="field">
             <label>Title</label>
-            <input type="text" name="todo[title]" placeholder="title">
+            <input type="text" name="todo[title]" placeholder="title" required/>
         </div>
         <div class="field">
             <label>Description</label>
-            <textarea name="todo[body]" placeholder="description"></textarea>
+            <textarea name="todo[body]" placeholder="description" required></textarea>
         </div>
         <input class="ui black basic button" type="submit" value="Send">
     </form>
